@@ -1,0 +1,1 @@
+rollup-typescript-component-library
