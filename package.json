@@ -1,5 +1,5 @@
 {
-  "name": "react-component-library-rollup",
+  "name": "sohaveaniceday-react-component-library-rollup",
   "version": "1.0.0",
   "main": "build/index.js",
   "module": "build/index.es.js",
