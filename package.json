@@ -1,5 +1,5 @@
 {
-  "name": "react-component-library",
+  "name": "react-component-library-rollup",
   "version": "1.0.0",
   "main": "build/index.js",
   "module": "build/index.es.js",
@@ -11,7 +11,8 @@
     "storybook": "start-storybook -p 6006",
     "storybook:export": "build-storybook",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
     "react": "^17.0.2",
