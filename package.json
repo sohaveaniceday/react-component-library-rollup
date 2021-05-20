@@ -16,11 +16,28 @@
     "test:ci": "cross-env CI=true yarn test",
     "test:ci-update": "cross-env CI=true yarn test-update",
     "test:watch": "jest --watch",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx ."
   },
   "peerDependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "test:ci"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix",
+      "eslint"
+    ],
+    "*.json": [
+      "prettier --write"
+    ]
   },
   "devDependencies": {
     "@babel/core": "^7.14.0",
@@ -38,13 +55,23 @@
     "@types/jest": "^26.0.23",
     "@types/react": "^17.0.5",
     "@types/react-dom": "^17.0.5",
+    "@typescript-eslint/eslint-plugin": "^4.24.0",
     "babel-loader": "^8.2.2",
     "babel-preset-react-app": "^10.0.0",
     "crossenv": "^0.0.2-security",
+    "eslint": "^7.26.0",
+    "eslint-config-airbnb-typescript": "^12.3.1",
+    "eslint-plugin-import": "^2.23.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.23.2",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^4.3.8",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.6.3",
+    "lint-staged": "^11.0.0",
     "node-sass": "^5.0.0",
     "postcss": "^8.2.14",
+    "prettier": "^2.3.0",
     "puppeteer": "^9.1.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

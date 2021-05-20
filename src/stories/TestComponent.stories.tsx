@@ -1,8 +1,9 @@
-import React from "react";
-import {TestComponent} from '../components/TestComponent';
+import React from 'react';
+
+import { TestComponent } from '../components/TestComponent';
 
 export default {
-  title: "TestComponent"
+  title: 'TestComponent',
 };
 
 export const Primary = () => <TestComponent theme="primary" />;
