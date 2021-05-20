@@ -10,7 +10,7 @@
   "scripts": {
     "build": "rollup -c",
     "storybook": "start-storybook -s ./public -p 6006",
-    "storybook:export": "build-storybook -s public",
+    "storybook:build": "build-storybook -s public",
     "test": "jest",
     "test-update": "jest -u",
     "test:ci": "cross-env CI=true yarn test",
@@ -24,8 +24,12 @@
   },
   "devDependencies": {
     "@babel/core": "^7.14.0",
+    "@babel/preset-env": "^7.14.2",
+    "@babel/preset-react": "^7.13.13",
+    "@babel/preset-typescript": "^7.13.0",
     "@rollup/plugin-commonjs": "^19.0.0",
     "@rollup/plugin-node-resolve": "^13.0.0",
+    "@storybook/addon-essentials": "^6.2.9",
     "@storybook/addon-storyshots": "^6.2.9",
     "@storybook/addon-storyshots-puppeteer": "^6.2.9",
     "@storybook/react": "^6.2.9",
