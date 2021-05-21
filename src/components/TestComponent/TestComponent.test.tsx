@@ -20,7 +20,7 @@ describe('Test Component', () => {
 
     const testComponent = getByTestId('test-component');
 
-    expect(testComponent).toHaveClass('test-component-primary');
+    expect(testComponent).toBeInTheDocument();
   });
 
   it('should have secondary className with theme set as secondary', () => {
@@ -29,6 +29,6 @@ describe('Test Component', () => {
 
     const testComponent = getByTestId('test-component');
 
-    expect(testComponent).toHaveClass('test-component-secondary');
+    expect(testComponent).toHaveClass('testComponent testComponentSecondary');
   });
 });

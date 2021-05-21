@@ -28,9 +28,11 @@ export default {
     resolve(),
     commonjs(),
     typescript({ useTsconfigDeclarationDir: true }),
-    postcss(),
     image(),
     json(),
     terser(),
+    postcss({
+      modules: true,
+    }),
   ],
 };

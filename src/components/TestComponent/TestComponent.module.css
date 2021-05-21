@@ -1,0 +1,16 @@
+.testComponent {
+    background-color: white;
+    border: 1px solid black;
+    padding: 16px;
+    width: 360px;
+    text-align: center;
+}
+
+.testComponent .heading {
+    font-size: 64px;
+}
+
+.testComponentSecondary {
+    background-color: black;
+    color: white;
+}
