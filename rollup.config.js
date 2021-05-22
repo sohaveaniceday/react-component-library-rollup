@@ -2,37 +2,44 @@ import commonjs from '@rollup/plugin-commonjs';
 import image from '@rollup/plugin-image';
 import json from '@rollup/plugin-json';
 import resolve from '@rollup/plugin-node-resolve';
+import typescript from '@rollup/plugin-typescript';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
 import { terser } from 'rollup-plugin-terser';
-import typescript from 'rollup-plugin-typescript2';
+import visualizer from 'rollup-plugin-visualizer';
 
-const packageJson = require('./package.json');
+import { getFiles } from './scripts/getFiles';
+
+const extensions = ['.js', '.ts', '.jsx', '.tsx'];
 
 export default {
-  input: 'src/index.ts',
-  output: [
-    {
-      file: packageJson.main,
-      format: 'cjs',
-      sourcemap: true,
-    },
-    {
-      file: packageJson.module,
-      format: 'esm',
-      sourcemap: true,
-    },
-  ],
+  input: ['./src/index.ts', ...getFiles('./src/components', extensions)],
+  output: {
+    dir: 'build',
+    format: 'esm',
+    preserveModules: true,
+    preserveModulesRoot: 'src',
+    sourcemap: true,
+  },
   plugins: [
     peerDepsExternal(),
     resolve(),
     commonjs(),
-    typescript({ useTsconfigDeclarationDir: true }),
+    typescript({
+      tsconfig: './tsconfig.json',
+      declaration: true,
+      declarationDir: 'build',
+    }),
     image(),
     json(),
     terser(),
     postcss({
       modules: true,
     }),
+    visualizer({
+      filename: 'bundle-analysis.html',
+      open: true,
+    }),
   ],
+  external: ['react', 'react-dom'],
 };

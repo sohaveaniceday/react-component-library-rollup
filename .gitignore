@@ -3,3 +3,6 @@ build
 
 # storybook
 storybook-static
+
+# bundle analyzer
+bundle-analysis.html
