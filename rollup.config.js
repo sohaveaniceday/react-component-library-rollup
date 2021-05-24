@@ -3,6 +3,7 @@ import image from '@rollup/plugin-image';
 import json from '@rollup/plugin-json';
 import resolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
+import svgr from '@svgr/rollup';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
 import { terser } from 'rollup-plugin-terser';
@@ -30,7 +31,7 @@ export default {
       declaration: true,
       declarationDir: 'build',
     }),
-    image(),
+    image({ exclude: ['**/*.svg'] }),
     json(),
     terser(),
     postcss({
@@ -40,6 +41,7 @@ export default {
       filename: 'bundle-analysis.html',
       open: true,
     }),
+    svgr(),
   ],
   external: ['react', 'react-dom'],
 };
