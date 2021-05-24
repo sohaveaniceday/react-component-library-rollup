@@ -2,7 +2,7 @@
   "plugins": ["@typescript-eslint"],
   "extends": ["airbnb-typescript"],
   "parserOptions": {
-    "project": "./tsconfig.json"
+    "project": "./tsconfig.eslint.json"
   },
   "ignorePatterns": ["jest.config.js", "jest.setup.ts"],
   "rules": {
